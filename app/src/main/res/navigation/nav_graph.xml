@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.freeelective.ecommercedemo.ui.LoginFragment"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_loginFragment_to_homePageFragment2"
+            app:destination="@id/homePageFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.freeelective.ecommercedemo.ui.HomePageFragment"
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/action_homePageFragment_to_productsDetailsFragment"
+            app:destination="@id/productsDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productsDetailsFragment"
+        android:name="com.freeelective.ecommercedemo.ui.ProductsDetailsFragment"
+        android:label="fragment_products_details"
+        tools:layout="@layout/fragment_products_details" >
+        <argument
+            android:name="productId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>

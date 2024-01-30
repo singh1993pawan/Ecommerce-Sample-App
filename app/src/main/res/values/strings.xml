@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">EcommerceDemo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="email_label">Email</string>
+    <string name="password_label">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="sample">Sample text</string>
+    <string name="add_to_cart">Add To Cart</string>
+
+</resources>
