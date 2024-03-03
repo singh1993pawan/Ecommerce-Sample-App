@@ -24,13 +24,15 @@ import com.freeelective.ecommercedemo.factory.ProductsDetailViewModelFactory
 import com.freeelective.ecommercedemo.helper.UpdateCartValueCallback
 import com.freeelective.ecommercedemo.repository.ProductsDetailsRepository
 import com.freeelective.ecommercedemo.viewmodel.ProductsDetailsViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class ProductsDetailsFragment : Fragment() {
 
     private lateinit var _binding: FragmentProductsDetailsBinding
     private val binding get() = _binding
-    private lateinit var viewModel: ProductsDetailsViewModel
+    @Inject lateinit var viewModel: ProductsDetailsViewModel
     private lateinit var repository: ProductsDetailsRepository
     private var id: Int = 0
     private var category:String = ""
@@ -61,9 +63,9 @@ class ProductsDetailsFragment : Fragment() {
         category = arguments?.getString("category")?:""
         val apiService = RetrofitInstance.apiService
         val repository = ProductsDetailsRepository(apiService)
-        viewModel = ViewModelProvider(this, ProductsDetailViewModelFactory(repository)).get(
-            ProductsDetailsViewModel::class.java
-        )
+//        viewModel = ViewModelProvider(this, ProductsDetailViewModelFactory(repository)).get(
+//            ProductsDetailsViewModel::class.java
+//        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

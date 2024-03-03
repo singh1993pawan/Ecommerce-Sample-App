@@ -9,8 +9,9 @@ import com.freeelective.ecommercedemo.data.model.AllCategoryResponse
 import com.freeelective.ecommercedemo.data.model.Products
 import com.freeelective.ecommercedemo.repository.HomePageRepository
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomePageViewModel(private val repository: HomePageRepository) : ViewModel() {
+class HomePageViewModel @Inject constructor(private val repository: HomePageRepository) : ViewModel() {
 
     private val _data = MutableLiveData<ApiResponse<AllCategoryResponse>>()
     val data: LiveData<ApiResponse<AllCategoryResponse>> get() = _data

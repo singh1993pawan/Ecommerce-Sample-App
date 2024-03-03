@@ -4,8 +4,9 @@ import com.freeelective.ecommercedemo.api.ApiResponse
 import com.freeelective.ecommercedemo.api.ApiService
 import com.freeelective.ecommercedemo.data.model.LoginRequestData
 import com.freeelective.ecommercedemo.data.model.LoginResponseData
+import javax.inject.Inject
 
-class LoginRepository(private val apiService: ApiService) {
+class LoginRepository @Inject constructor(private val apiService: ApiService) {
 
     suspend fun fetchData(loginData:LoginRequestData):ApiResponse<LoginResponseData>{
         return try {

@@ -15,20 +15,24 @@ import com.freeelective.ecommercedemo.R
 import com.freeelective.ecommercedemo.api.*
 import com.freeelective.ecommercedemo.data.model.LoginRequestData
 import com.freeelective.ecommercedemo.databinding.FragmentLoginBinding
-import com.freeelective.ecommercedemo.factory.DataViewModelFactory
 import com.freeelective.ecommercedemo.repository.LoginRepository
 import com.freeelective.ecommercedemo.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.scopes.FragmentScoped
+import dagger.hilt.android.scopes.ViewModelScoped
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-    private lateinit var loginViewModel:LoginViewModel
-    private lateinit var dataRepository: LoginRepository
+    @Inject lateinit var loginViewModel:LoginViewModel
+    @Inject lateinit var dataRepository: LoginRepository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val apiService = RetrofitInstance.apiService
-        dataRepository = LoginRepository(apiService)
-        loginViewModel = ViewModelProvider(this, DataViewModelFactory(dataRepository)).get(LoginViewModel::class.java)
+        //val apiService = RetrofitInstance.apiService
+        //dataRepository = LoginRepository(apiService)
+        //loginViewModel = ViewModelProvider(this, DataViewModelFactory(dataRepository)).get(LoginViewModel::class.java)
     }
 
     override fun onCreateView(

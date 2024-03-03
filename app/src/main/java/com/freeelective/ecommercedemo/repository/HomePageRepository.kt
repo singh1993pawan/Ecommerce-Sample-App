@@ -4,8 +4,9 @@ import com.freeelective.ecommercedemo.api.ApiResponse
 import com.freeelective.ecommercedemo.api.ApiService
 import com.freeelective.ecommercedemo.data.model.AllCategoryResponse
 import com.freeelective.ecommercedemo.data.model.Products
+import javax.inject.Inject
 
-class HomePageRepository(private val apiService: ApiService) {
+class HomePageRepository @Inject constructor(private val apiService: ApiService) {
 
     suspend fun fetchData(): ApiResponse<AllCategoryResponse> {
         return try {

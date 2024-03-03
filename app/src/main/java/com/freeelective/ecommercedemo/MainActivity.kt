@@ -12,7 +12,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.freeelective.ecommercedemo.databinding.ActivityMainBinding
 import com.freeelective.ecommercedemo.helper.UpdateCartValueCallback
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(),UpdateCartValueCallback {
 
     private lateinit var badgeTextView: TextView
@@ -24,10 +26,6 @@ class MainActivity : AppCompatActivity(),UpdateCartValueCallback {
         setContentView(binding.root)
         val toolbar:Toolbar=binding.toolbar
         setSupportActionBar(toolbar)
-//        val menu = toolbar.menu
-//        val cartItem = menu.findItem(R.id.action_cart)
-//        val badge = cartItem?.actionView?.findViewById<TextView>(R.id.badge)
-//        badge?.text="10"
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

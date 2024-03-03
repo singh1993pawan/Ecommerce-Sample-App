@@ -29,23 +29,26 @@ import com.freeelective.ecommercedemo.factory.AllCategoryViewModelFactory
 import com.freeelective.ecommercedemo.helper.OnGridClickListner
 import com.freeelective.ecommercedemo.repository.HomePageRepository
 import com.freeelective.ecommercedemo.viewmodel.HomePageViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class HomePageFragment : Fragment(),OnGridClickListner {
     private var _binding: FragmentHomePageBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: HomePageViewModel
-    private lateinit var respository: HomePageRepository
+    @Inject lateinit var viewModel: HomePageViewModel
+    @Inject lateinit var respository: HomePageRepository
     private lateinit var adapter:ProductAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val apiService = RetrofitInstance.apiService
+        //val apiService = RetrofitInstance.apiService
 
-        respository = HomePageRepository(apiService)
-        viewModel = ViewModelProvider(
-            this,
-            AllCategoryViewModelFactory(respository)
-        ).get(HomePageViewModel::class.java)
+//        respository = HomePageRepository(apiService)
+//        viewModel = ViewModelProvider(
+//            this,
+//            AllCategoryViewModelFactory(respository)
+//        ).get(HomePageViewModel::class.java)
         viewModel.fetchData()
         viewModel.fetchProducts()
     }
